@@ -28,7 +28,7 @@ export default function Home() {
               Automatiza y escala tu empresa con <span className="bg-gradient-to-r from-[#00d2d3] via-cyan-400 to-[#6c5ce7] bg-clip-text text-transparent">Software Inteligente</span>
             </h1>
             <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-              En <strong className="text-white">Almain</strong> ofrecemos soluciones SaaS listas para operar: digitaliza la reserva de cupos de tu gimnasio con **FourGym** o gestiona la logística de tu flota de envíos con **Delivery Connect**.
+              En <strong className="text-white">Almain</strong> ofrecemos soluciones SaaS listas para operar: gestiona membresías, POS de BarFit, rutinas y dietas digitales de tu gimnasio con **FourGym** o digitaliza tu logística de envíos con **Delivery Connect**.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
@@ -114,14 +114,14 @@ export default function Home() {
             {/* Mockup Preview container */}
             <div className="lg:col-span-6 order-2 lg:order-1 relative">
               <div className="absolute inset-0 bg-[#00d2d3]/5 blur-3xl pointer-events-none rounded-full"></div>
-              
+
               {/* Graphic Seat map mock */}
               <div className="w-full max-w-lg mx-auto glass-panel rounded-3xl p-6 border border-white/10 relative z-10 shadow-2xl glow-border corner-accent">
                 <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3">
                   <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">PREVISUALIZACIÓN DE SALA EN VIVO</span>
                   <span className="text-[9px] font-bold text-[#00d2d3] uppercase tracking-wider bg-[#00d2d3]/10 px-2 py-0.5 rounded">FourGym Room</span>
                 </div>
-                
+
                 <p className="text-[10px] text-slate-400 mb-6">Mapa dinámico de ubicaciones para Spinning/Cardio.</p>
 
                 {/* Grid representation */}
@@ -132,13 +132,12 @@ export default function Home() {
                     return (
                       <div
                         key={idx}
-                        className={`aspect-square rounded-xl border flex items-center justify-center text-[10px] font-bold transition-all ${
-                          isOccupied
+                        className={`aspect-square rounded-xl border flex items-center justify-center text-[10px] font-bold transition-all ${isOccupied
                             ? "bg-rose-950/40 border-rose-500/20 text-rose-500 cursor-not-allowed"
                             : isSelected
-                            ? "bg-[#00d2d3] border-[#00d2d3] text-slate-950 shadow-md shadow-[#00d2d3]/20"
-                            : "bg-slate-950/50 border-white/5 text-slate-400 hover:border-slate-500 cursor-pointer"
-                        }`}
+                              ? "bg-[#00d2d3] border-[#00d2d3] text-slate-950 shadow-md shadow-[#00d2d3]/20"
+                              : "bg-slate-950/50 border-white/5 text-slate-400 hover:border-slate-500 cursor-pointer"
+                          }`}
                       >
                         {idx + 1}
                       </div>
@@ -170,43 +169,53 @@ export default function Home() {
             {/* Features description */}
             <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
               <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[9px] uppercase tracking-widest leading-none">
-                🏋️‍♂️ GESTIÓN INTEGRAL DE GIMNASIOS
+                🏋️‍♂️ GESTIÓN DEPORTIVA DE ALTO NIVEL
               </span>
               <h2 className="font-outfit font-black text-3xl md:text-5xl text-white tracking-tight mb-4 leading-tight">
-                FourGym: Controla tu aforo en tiempo real
+                FourGym: Tu Gimnasio bajo Control 360°
               </h2>
               <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-                Diseñado para simplificar la gestión diaria de tu centro deportivo. Permite que tus socios reserven su bicicleta o ubicación específica en el salón directamente desde sus celulares.
+                Mucho más que reservas de aforo. FourGym te ofrece una suite administrativa integral para controlar tu negocio fitness desde la palma de tu mano.
               </p>
 
               <div className="space-y-4 pt-2">
                 <div className="flex items-start">
                   <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
+                    💳
+                  </div>
+                  <div>
+                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Membresías & Asistencia</h4>
+                    <p className="text-slate-400 text-xs mt-1">Control automatizado de vencimientos, venta de planes recurrentes e historial de accesos de socios.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
+                    🥤
+                  </div>
+                  <div>
+                    <h4 className="font-outfit font-bold text-slate-200 text-sm">POS de BarFit (Tienda)</h4>
+                    <p className="text-slate-400 text-xs mt-1">Caja chica y facturación rápida de suplementos, bebidas saludables y snacks con control estricto de inventario.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
+                    🥗
+                  </div>
+                  <div>
+                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Rutinas & Planes de Alimentación</h4>
+                    <p className="text-slate-400 text-xs mt-1">Diseña y asigna programas de entrenamiento interactivos y dietas personalizadas para cada miembro.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
                     📍
                   </div>
                   <div>
-                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Reserva de Ubicaciones</h4>
-                    <p className="text-slate-400 text-xs mt-1">Los socios escogen su lugar favorito antes de ir al gimnasio, reduciendo fricciones.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
-                    ⚡
-                  </div>
-                  <div>
-                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Sincronización en Tiempo Real</h4>
-                    <p className="text-slate-400 text-xs mt-1">Implementado con SignalR para que todos los usuarios vean los asientos ocupados al instante.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-lg bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold text-sm mr-3.5 flex-shrink-0 mt-0.5">
-                    🥦
-                  </div>
-                  <div>
-                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Rutas de Entrenamiento & Nutrición</h4>
-                    <p className="text-slate-400 text-xs mt-1">Módulos avanzados para que los instructores asignen dietas y enfoques de ejercicios diarios.</p>
+                    <h4 className="font-outfit font-bold text-slate-200 text-sm">Reservas en Tiempo Real</h4>
+                    <p className="text-slate-400 text-xs mt-1">Mapa interactivo con SignalR para separar bicicletas de spinning o ubicaciones en clases grupales.</p>
                   </div>
                 </div>
               </div>
@@ -392,7 +401,7 @@ export default function Home() {
               className="rounded-lg object-contain"
             />
             <span className="font-outfit font-black tracking-widest text-sm text-white">
-              ALMAIN <span className="text-[#00d2d3]">SaaS</span>
+              ALMAIN <span className="text-[#00d2d3]">TIC</span>
             </span>
           </div>
 

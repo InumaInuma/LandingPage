@@ -30,11 +30,10 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-[#070514]/80 backdrop-blur-md border-b border-white/5 py-4"
           : "bg-transparent py-6"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
@@ -50,7 +49,7 @@ export const Navbar = () => {
             className="rounded-lg object-contain"
           />
           <span className="font-outfit font-black tracking-widest text-lg bg-gradient-to-r from-white via-slate-200 to-[#00d2d3] bg-clip-text text-transparent">
-            AL<span className="text-white">MAIN</span> <span className="text-xs font-normal text-slate-400 tracking-normal ml-1">SaaS</span>
+            AL<span className="text-white">MAIN</span> <span className="text-xs font-normal text-slate-400 tracking-normal ml-1">TIC</span>
           </span>
         </div>
 
@@ -116,9 +115,8 @@ export const Navbar = () => {
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-[#0c0926]/95 border-b border-white/5 backdrop-blur-lg transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? "max-h-[300px] py-6" : "max-h-0 py-0"
-        }`}
+        className={`md:hidden absolute top-full left-0 right-0 bg-[#0c0926]/95 border-b border-white/5 backdrop-blur-lg transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-[300px] py-6" : "max-h-0 py-0"
+          }`}
       >
         <div className="flex flex-col space-y-4 px-6">
           <a
