@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,13 +38,17 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <div className="flex items-center space-x-2 cursor-pointer" onClick={(e) => {
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={(e) => {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#00d2d3] to-[#6c5ce7] flex items-center justify-center font-outfit font-black text-slate-950 text-sm shadow-md shadow-[#00d2d3]/20">
-            AL
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Almain Logo"
+            width={32}
+            height={32}
+            className="rounded-lg object-contain"
+          />
           <span className="font-outfit font-black tracking-widest text-lg bg-gradient-to-r from-white via-slate-200 to-[#00d2d3] bg-clip-text text-transparent">
             AL<span className="text-white">MAIN</span> <span className="text-xs font-normal text-slate-400 tracking-normal ml-1">SaaS</span>
           </span>

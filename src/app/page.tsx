@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Pricing } from "@/components/Pricing";
 import { ContactForm } from "@/components/ContactForm";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -372,10 +373,14 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-white/5 bg-slate-950/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#00d2d3] to-[#6c5ce7] flex items-center justify-center font-outfit font-black text-slate-950 text-xs">
-              AL
-            </div>
+          <div className="flex items-center space-x-3">
+            <Image
+              src="/logo.png"
+              alt="Almain Logo"
+              width={28}
+              height={28}
+              className="rounded-lg object-contain"
+            />
             <span className="font-outfit font-black tracking-widest text-sm text-white">
               ALMAIN <span className="text-[#00d2d3]">SaaS</span>
             </span>
