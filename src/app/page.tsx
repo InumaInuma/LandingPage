@@ -2,6 +2,9 @@ import { Navbar } from "@/components/Navbar";
 import { Pricing } from "@/components/Pricing";
 import { ContactForm } from "@/components/ContactForm";
 import Image from "next/image";
+import { HeroGlow } from "@/components/HeroGlow";
+import { LiveActivityFeed } from "@/components/LiveActivityFeed";
+import { DeliveryTracer } from "@/components/DeliveryTracer";
 
 export default function Home() {
   return (
@@ -15,7 +18,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <HeroGlow />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
             <span className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[10px] uppercase tracking-widest leading-none">
               🚀 SOFTWARE COMO SERVICIO (SaaS) PARA TU NEGOCIO
@@ -44,7 +48,7 @@ export default function Home() {
 
           {/* Interactive Mockups Showcase */}
           <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-            <div className="w-full relative z-10 glass-panel rounded-3xl p-6 border border-white/10 shadow-2xl animate-fade-in [animation-delay:200ms]">
+            <div className="w-full relative z-10 glass-panel rounded-3xl p-6 border border-white/10 shadow-2xl animate-fade-in [animation-delay:200ms] glow-border corner-accent">
               <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
                 <div className="flex space-x-1.5">
                   <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
@@ -112,7 +116,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[#00d2d3]/5 blur-3xl pointer-events-none rounded-full"></div>
               
               {/* Graphic Seat map mock */}
-              <div className="w-full max-w-lg mx-auto glass-panel rounded-3xl p-6 border border-white/10 relative z-10 shadow-2xl">
+              <div className="w-full max-w-lg mx-auto glass-panel rounded-3xl p-6 border border-white/10 relative z-10 shadow-2xl glow-border corner-accent">
                 <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3">
                   <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">PREVISUALIZACIÓN DE SALA EN VIVO</span>
                   <span className="text-[9px] font-bold text-[#00d2d3] uppercase tracking-wider bg-[#00d2d3]/10 px-2 py-0.5 rounded">FourGym Room</span>
@@ -157,6 +161,9 @@ export default function Home() {
                     <span>Ocupado</span>
                   </div>
                 </div>
+
+                {/* Live Activity Feed simulation */}
+                <LiveActivityFeed />
               </div>
             </div>
 
@@ -262,7 +269,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[#6c5ce7]/5 blur-3xl pointer-events-none rounded-full"></div>
 
               {/* Graphic Delivery dispatcher mock */}
-              <div className="w-full max-w-lg mx-auto glass-panel rounded-3xl p-6 border border-white/10 relative z-10 shadow-2xl">
+              <div className="w-full max-w-lg mx-auto glass-panel rounded-3xl p-6 border border-white/10 relative z-10 shadow-2xl glow-border corner-accent">
                 <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-3">
                   <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">PANEL DE DESPACHO EN TIEMPO REAL</span>
                   <span className="text-[9px] font-bold text-[#a29bfe] uppercase tracking-wider bg-[#6c5ce7]/10 px-2 py-0.5 rounded">Delivery Connect</span>
@@ -307,6 +314,9 @@ export default function Home() {
                     <span className="text-[10px] font-bold text-emerald-400">Completado</span>
                   </div>
                 </div>
+
+                {/* Delivery live path tracer simulation */}
+                <DeliveryTracer />
               </div>
             </div>
           </div>

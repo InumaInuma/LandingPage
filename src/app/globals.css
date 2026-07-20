@@ -44,6 +44,74 @@ body {
   transform: translateY(-2px);
 }
 
+/* Glowing cards with animated border gradient */
+.glow-border {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-border:hover::before {
+  background: linear-gradient(135deg, rgba(0, 210, 211, 0.5), rgba(108, 92, 231, 0.5));
+}
+
+/* Cyberpunk-style corner accents */
+.corner-accent {
+  position: relative;
+}
+
+.corner-accent::before, .corner-accent::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(0, 210, 211, 0.3);
+  border-style: solid;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.corner-accent::before {
+  top: 12px; left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-accent::after {
+  bottom: 12px; right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+.corner-accent:hover::before, .corner-accent:hover::after {
+  border-color: rgba(0, 210, 211, 0.8);
+  width: 14px;
+  height: 14px;
+}
+
+/* Tech Cyber Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 100%);
+}
+
 /* Neon glow backgrounds */
 .glow-cyan {
   background: radial-gradient(circle, rgba(0, 210, 211, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
