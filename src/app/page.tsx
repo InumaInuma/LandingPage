@@ -24,17 +24,17 @@ export default function Home() {
       <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-6">
         <HeroGlow />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
-            <span className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[10px] uppercase tracking-widest leading-none">
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <span className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[10px] uppercase tracking-widest leading-none puzzle-left">
               🚀 TRANSFORMACIÓN DIGITAL & SOLUCIONES SAAS
             </span>
-            <h1 className="font-outfit font-black text-4xl md:text-6xl text-white tracking-tight leading-[1.05] max-w-2xl">
+            <h1 className="font-outfit font-black text-4xl md:text-6xl text-white tracking-tight leading-[1.05] max-w-2xl puzzle-left">
               Digitalizamos tus procesos con <span className="bg-gradient-to-r from-[#00d2d3] via-cyan-400 to-[#6c5ce7] bg-clip-text text-transparent">Software a Medida</span>
             </h1>
-            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl puzzle-right">
               En <strong className="text-white">Almain TIC</strong> diseñamos y desplegamos soluciones tecnológicas en la nube. Automatizamos tus flujos de trabajo, optimizamos tu operatividad y creamos plataformas SaaS personalizadas para cualquier rubro comercial.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 puzzle-bottom">
               <a
                 href="#services"
                 className="px-6 py-4 rounded-xl bg-gradient-to-r from-[#00d2d3] to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-950 font-outfit font-black text-xs uppercase tracking-widest text-center transition-all duration-300 shadow-lg shadow-[#00d2d3]/10 hover:shadow-cyan-400/20 active:scale-95 cursor-pointer"
@@ -51,8 +51,8 @@ export default function Home() {
           </div>
 
           {/* Interactive Mockups Showcase */}
-          <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-            <div className="w-full relative z-10 glass-panel rounded-3xl p-6 border border-white/10 shadow-2xl animate-fade-in [animation-delay:200ms] glow-border corner-accent">
+          <div className="lg:col-span-5 relative mt-8 lg:mt-0 puzzle-mockup">
+            <div className="w-full relative z-10 glass-panel rounded-3xl p-6 border border-white/10 shadow-2xl glow-border corner-accent">
               <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
                 <div className="flex space-x-1.5">
                   <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
