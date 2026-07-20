@@ -46,7 +46,7 @@ export const Navbar = () => {
     <>
       {/* 1. Top Navbar - visible on desktop, simple header on mobile */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 pr-16 md:pr-0 transition-all duration-300 ${
           isScrolled
             ? "bg-[#070514]/85 backdrop-blur-md border-b border-white/5 py-4"
             : "bg-transparent py-6"
