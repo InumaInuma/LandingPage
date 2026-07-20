@@ -6,7 +6,8 @@ import Image from "next/image";
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState("hero");
-  const [isCollapsed, setIsCollapsed] = useState(true); // Default to collapsed thin icon bar on mobile
+  // menuState can be: 'hidden', 'icons', 'full'
+  const [menuState, setMenuState] = useState<"hidden" | "icons" | "full">("hidden");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,9 +45,9 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* 1. Top Navbar - visible on desktop, simple header on mobile */}
+      {/* 1. Top Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 pr-16 md:pr-0 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? "bg-[#070514]/85 backdrop-blur-md border-b border-white/5 py-4"
             : "bg-transparent py-6"
@@ -59,6 +60,7 @@ export const Navbar = () => {
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
               setActiveTab("hero");
+              setMenuState("hidden");
             }}
           >
             <Image
@@ -123,16 +125,38 @@ export const Navbar = () => {
               Consulta Técnica
             </a>
           </div>
+
+          {/* Mobile Menu Hamburger Button */}
+          <button
+            onClick={() => {
+              if (menuState === "hidden") {
+                setMenuState("icons");
+              } else {
+                setMenuState("hidden");
+              }
+            }}
+            className="md:hidden text-slate-300 hover:text-white focus:outline-none cursor-pointer z-50 p-2"
+          >
+            {menuState === "hidden" ? (
+              // Hamburger Icon (3 lines)
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            ) : (
+              // Close Icon (X)
+              <svg className="w-6 h-6 text-[#00d2d3]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            )}
+          </button>
         </div>
       </nav>
 
-      {/* 2. Mobile Floating Sidebar Menu - Collapsed State (Thin strip on the right) */}
-      {isCollapsed && (
-        <div className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-16 bg-[#0c0926]/90 backdrop-blur-md border-l border-white/10 flex flex-col items-center justify-between py-6 shadow-2xl">
-          {/* Top Logo Thumbnail */}
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#00d2d3] to-[#6c5ce7] flex items-center justify-center font-outfit font-black text-slate-950 text-xs">
-            AL
-          </div>
+      {/* 2. Mobile Floating Sidebar Menu - Collapsed State (Thin strip of icons) */}
+      {menuState === "icons" && (
+        <div className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-16 bg-[#0c0926]/90 backdrop-blur-md border-l border-white/10 flex flex-col items-center justify-between py-24 shadow-2xl animate-fade-in">
+          {/* Decorative Indicator */}
+          <div className="w-1.5 h-1.5 rounded-full bg-[#00d2d3] animate-pulse"></div>
 
           {/* Vertical Stack of Icons */}
           <div className="flex flex-col space-y-6 items-center">
@@ -197,10 +221,10 @@ export const Navbar = () => {
             </button>
           </div>
 
-          {/* Bottom Expand Arrow (expand sidebar) */}
+          {/* Bottom Expand Arrow (opens full menu) */}
           <button
-            onClick={() => setIsCollapsed(false)}
-            className="w-10 h-10 rounded-xl bg-white/5 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+            onClick={() => setMenuState("full")}
+            className="w-10 h-10 rounded-xl bg-white/5 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -209,9 +233,9 @@ export const Navbar = () => {
         </div>
       )}
 
-      {/* 3. Mobile Floating Sidebar Menu - Expanded State (Slide-out Panel) */}
-      {!isCollapsed && (
-        <div className="md:hidden fixed inset-y-0 right-0 z-50 w-64 bg-[#0c0926]/98 backdrop-blur-xl border-l border-white/10 flex flex-col justify-between py-6 px-4 shadow-[0_0_50px_rgba(0,0,0,0.85)] animate-fade-in">
+      {/* 3. Mobile Floating Sidebar Menu - Expanded State (Full Text Menu) */}
+      {menuState === "full" && (
+        <div className="md:hidden fixed inset-y-0 right-0 z-50 w-64 bg-[#0c0926]/98 backdrop-blur-xl border-l border-white/10 flex flex-col justify-between py-24 px-4 shadow-[0_0_50px_rgba(0,0,0,0.85)] animate-fade-in">
           {/* Header Area */}
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-white/5">
@@ -228,7 +252,7 @@ export const Navbar = () => {
                 </span>
               </div>
               <button
-                onClick={() => setIsCollapsed(true)}
+                onClick={() => setMenuState("hidden")}
                 className="p-1 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-colors cursor-pointer"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -237,13 +261,13 @@ export const Navbar = () => {
               </button>
             </div>
 
-            {/* Menu List - Row layout (Icon + Text) like Gym App */}
+            {/* Menu List - Row layout (Icon + Text) */}
             <div className="flex flex-col space-y-3 pt-6">
               {/* Link 1 */}
               <button
                 onClick={(e) => {
                   handleLinkClick(e, "hero");
-                  setIsCollapsed(true);
+                  setMenuState("hidden");
                 }}
                 className={`w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all text-xs font-bold uppercase tracking-wider ${
                   activeTab === "hero"
@@ -261,7 +285,7 @@ export const Navbar = () => {
               <button
                 onClick={(e) => {
                   handleLinkClick(e, "services");
-                  setIsCollapsed(true);
+                  setMenuState("hidden");
                 }}
                 className={`w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all text-xs font-bold uppercase tracking-wider ${
                   activeTab === "services"
@@ -279,7 +303,7 @@ export const Navbar = () => {
               <button
                 onClick={(e) => {
                   handleLinkClick(e, "cases");
-                  setIsCollapsed(true);
+                  setMenuState("hidden");
                 }}
                 className={`w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all text-xs font-bold uppercase tracking-wider ${
                   activeTab === "cases"
@@ -297,7 +321,7 @@ export const Navbar = () => {
               <button
                 onClick={(e) => {
                   handleLinkClick(e, "pricing");
-                  setIsCollapsed(true);
+                  setMenuState("hidden");
                 }}
                 className={`w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all text-xs font-bold uppercase tracking-wider ${
                   activeTab === "pricing"
@@ -315,7 +339,7 @@ export const Navbar = () => {
               <button
                 onClick={(e) => {
                   handleLinkClick(e, "contact");
-                  setIsCollapsed(true);
+                  setMenuState("hidden");
                 }}
                 className={`w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl transition-all text-xs font-bold uppercase tracking-wider ${
                   activeTab === "contact"
@@ -331,10 +355,10 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Bottom Collapse Arrow (collapse to icon bar) */}
+          {/* Bottom Collapse Button (collapses back to icons strip) */}
           <div className="space-y-4">
             <button
-              onClick={() => setIsCollapsed(true)}
+              onClick={() => setMenuState("icons")}
               className="w-full flex items-center justify-center space-x-2 py-3 rounded-2xl bg-white/5 text-slate-400 hover:text-white transition-all text-[10px] font-bold uppercase tracking-widest cursor-pointer"
             >
               <span>Solo mostrar iconos</span>

@@ -9,7 +9,7 @@ import { SignaturePreloader } from "@/components/SignaturePreloader";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#070514] w-full max-w-full overflow-hidden pr-16 md:pr-0 text-slate-100 selection:bg-[#00d2d3] selection:text-slate-950 relative">
+    <div className="min-h-screen bg-[#070514] w-full max-w-full overflow-hidden text-slate-100 selection:bg-[#00d2d3] selection:text-slate-950 relative">
       {/* Dynamic Cyber Signature Preloader */}
       <SignaturePreloader />
 
