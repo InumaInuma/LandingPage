@@ -5,10 +5,14 @@ import Image from "next/image";
 import { HeroGlow } from "@/components/HeroGlow";
 import { LiveActivityFeed } from "@/components/LiveActivityFeed";
 import { DeliveryTracer } from "@/components/DeliveryTracer";
+import { SignaturePreloader } from "@/components/SignaturePreloader";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#070514] overflow-x-hidden text-slate-100 selection:bg-[#00d2d3] selection:text-slate-950">
+      {/* Dynamic Cyber Signature Preloader */}
+      <SignaturePreloader />
+
       {/* Background abstract ambient glow spots */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full glow-cyan blur-[120px] pointer-events-none opacity-40"></div>
       <div className="absolute top-[20%] right-1/4 w-[600px] h-[600px] rounded-full glow-purple blur-[150px] pointer-events-none opacity-30"></div>
