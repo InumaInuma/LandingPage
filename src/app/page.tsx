@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-6">
+      <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-6 overflow-hidden">
         <HeroGlow />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
