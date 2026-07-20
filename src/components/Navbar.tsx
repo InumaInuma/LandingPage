@@ -63,18 +63,18 @@ export const Navbar = () => {
             Inicio
           </a>
           <a
-            href="#fourgym"
-            onClick={(e) => handleLinkClick(e, "fourgym")}
+            href="#services"
+            onClick={(e) => handleLinkClick(e, "services")}
             className="text-xs font-semibold text-slate-300 hover:text-[#00d2d3] uppercase tracking-wider transition-colors"
           >
-            FourGym
+            Servicios
           </a>
           <a
-            href="#delivery"
-            onClick={(e) => handleLinkClick(e, "delivery")}
+            href="#cases"
+            onClick={(e) => handleLinkClick(e, "cases")}
             className="text-xs font-semibold text-slate-300 hover:text-[#a29bfe] uppercase tracking-wider transition-colors"
           >
-            Delivery Connect
+            Casos de Éxito
           </a>
           <a
             href="#pricing"
@@ -127,18 +127,18 @@ export const Navbar = () => {
             Inicio
           </a>
           <a
-            href="#fourgym"
-            onClick={(e) => handleLinkClick(e, "fourgym")}
+            href="#services"
+            onClick={(e) => handleLinkClick(e, "services")}
             className="text-sm font-semibold text-slate-300 hover:text-[#00d2d3] uppercase tracking-wider transition-colors"
           >
-            FourGym
+            Servicios
           </a>
           <a
-            href="#delivery"
-            onClick={(e) => handleLinkClick(e, "delivery")}
+            href="#cases"
+            onClick={(e) => handleLinkClick(e, "cases")}
             className="text-sm font-semibold text-slate-300 hover:text-[#a29bfe] uppercase tracking-wider transition-colors"
           >
-            Delivery Connect
+            Casos de Éxito
           </a>
           <a
             href="#pricing"

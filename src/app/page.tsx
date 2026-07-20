@@ -22,26 +22,26 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
             <span className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[10px] uppercase tracking-widest leading-none">
-              🚀 SOFTWARE COMO SERVICIO (SaaS) PARA TU NEGOCIO
+              🚀 TRANSFORMACIÓN DIGITAL & SOLUCIONES SAAS
             </span>
             <h1 className="font-outfit font-black text-4xl md:text-6xl text-white tracking-tight leading-[1.05] max-w-2xl">
-              Automatiza y escala tu empresa con <span className="bg-gradient-to-r from-[#00d2d3] via-cyan-400 to-[#6c5ce7] bg-clip-text text-transparent">Software Inteligente</span>
+              Digitalizamos tus procesos con <span className="bg-gradient-to-r from-[#00d2d3] via-cyan-400 to-[#6c5ce7] bg-clip-text text-transparent">Software a Medida</span>
             </h1>
             <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-              En <strong className="text-white">Almain</strong> ofrecemos soluciones SaaS listas para operar: gestiona membresías, POS de BarFit, rutinas y dietas digitales de tu gimnasio con **FourGym** o digitaliza tu logística de envíos con **Delivery Connect**.
+              En <strong className="text-white">Almain TIC</strong> diseñamos y desplegamos soluciones tecnológicas en la nube. Automatizamos tus flujos de trabajo, optimizamos tu operatividad y creamos plataformas SaaS personalizadas para cualquier rubro comercial.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
-                href="#pricing"
+                href="#services"
                 className="px-6 py-4 rounded-xl bg-gradient-to-r from-[#00d2d3] to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-950 font-outfit font-black text-xs uppercase tracking-widest text-center transition-all duration-300 shadow-lg shadow-[#00d2d3]/10 hover:shadow-cyan-400/20 active:scale-95 cursor-pointer"
               >
-                Ver Planes & Suscripciones
+                Ver Servicios & Módulos
               </a>
               <a
                 href="#contact"
                 className="px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/5 font-outfit font-black text-xs uppercase tracking-widest text-center transition-all duration-300 cursor-pointer"
               >
-                Agendar Videollamada Demo
+                Agendar Consulta Técnica
               </a>
             </div>
           </div>
@@ -55,51 +55,51 @@ export default function Home() {
                   <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
                   <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                 </div>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">ECOSISTEMA MULTI-TENANT</span>
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">NUESTROS SERVICIOS TIC</span>
               </div>
 
               {/* Showcase Cards list */}
               <div className="space-y-4">
-                {/* FourGym Card Item */}
+                {/* Custom SaaS Card Item */}
                 <div className="p-4 rounded-2xl bg-[#0c0926]/80 border border-[#00d2d3]/15 flex items-center justify-between hover:border-[#00d2d3]/30 transition-all">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-xl bg-[#00d2d3]/10 flex items-center justify-center text-[#00d2d3] font-bold font-outfit text-sm">
-                      🏋️‍♂️
+                      ☁️
                     </div>
                     <div>
-                      <h4 className="font-outfit font-black text-xs text-white uppercase tracking-wider">FourGym</h4>
-                      <p className="text-[10px] text-slate-400">Software para Gimnasios & Studios</p>
+                      <h4 className="font-outfit font-black text-xs text-white uppercase tracking-wider">Desarrollo SaaS a Medida</h4>
+                      <p className="text-[10px] text-slate-400">Plataformas Cloud Multitenant escalables</p>
                     </div>
                   </div>
-                  <span className="text-[9px] font-bold text-[#00d2d3] bg-[#00d2d3]/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Activo</span>
+                  <span className="text-[9px] font-bold text-[#00d2d3] bg-[#00d2d3]/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Core</span>
                 </div>
 
-                {/* Delivery Connect Card Item */}
+                {/* Digitalization Card Item */}
                 <div className="p-4 rounded-2xl bg-[#0c0926]/80 border border-[#6c5ce7]/15 flex items-center justify-between hover:border-[#6c5ce7]/30 transition-all">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-xl bg-[#6c5ce7]/10 flex items-center justify-center text-[#6c5ce7] font-bold font-outfit text-sm">
-                      📦
+                      ⚡
                     </div>
                     <div>
-                      <h4 className="font-outfit font-black text-xs text-white uppercase tracking-wider">Delivery Connect</h4>
-                      <p className="text-[10px] text-slate-400">Software de Logística & Reparto</p>
+                      <h4 className="font-outfit font-black text-xs text-white uppercase tracking-wider">Digitalización de Procesos</h4>
+                      <p className="text-[10px] text-slate-400">Automatización de flujos y operaciones</p>
                     </div>
                   </div>
-                  <span className="text-[9px] font-bold text-[#a29bfe] bg-[#6c5ce7]/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Próximamente</span>
+                  <span className="text-[9px] font-bold text-[#a29bfe] bg-[#6c5ce7]/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Optimizado</span>
                 </div>
 
-                {/* Super Admin Command Card Item */}
+                {/* API / Backend Integrations */}
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 font-bold font-outfit text-sm">
-                      ⚙️
+                      🛡️
                     </div>
                     <div>
-                      <h4 className="font-outfit font-black text-xs text-slate-300 uppercase tracking-wider">Super Admin Backoffice</h4>
-                      <p className="text-[10px] text-slate-500">Módulo Central de Suscripciones</p>
+                      <h4 className="font-outfit font-black text-xs text-slate-300 uppercase tracking-wider">Arquitectura Limpia & APIs</h4>
+                      <p className="text-[10px] text-slate-500">Servicios backend en .NET Core & AWS</p>
                     </div>
                   </div>
-                  <span className="text-[9px] font-bold text-slate-500 bg-white/5 px-2 py-0.5 rounded-full uppercase tracking-wider">Privado</span>
+                  <span className="text-[9px] font-bold text-slate-500 bg-white/5 px-2 py-0.5 rounded-full uppercase tracking-wider">Sólido</span>
                 </div>
               </div>
             </div>
@@ -107,8 +107,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section id="services" className="py-20 border-t border-white/5 relative bg-[#070514] z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#00d2d3]/10 border border-[#00d2d3]/20 text-[#00d2d3] font-bold text-[9px] uppercase tracking-widest leading-none mb-4">
+              💼 NUESTROS SERVICIOS Y CAPACIDADES
+            </span>
+            <h2 className="font-outfit font-black text-3xl md:text-5xl text-white tracking-tight mb-4">
+              Soluciones Digitales de Extremo a Extremo
+            </h2>
+            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+              No nos limitamos a un solo rubro. En Almain TIC digitalizamos procesos corporativos y construimos plataformas adaptadas a las necesidades específicas de tu sector.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Service 1 */}
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-[#00d2d3]/25 transition-all duration-300 group">
+              <span className="text-3xl mb-4 block group-hover:scale-110 transition-transform duration-300">☁️</span>
+              <h3 className="font-outfit font-bold text-slate-200 text-base mb-2">Desarrollo SaaS</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">Creamos modelos de suscripción mensuales multitenant, listos para monetizar y escalar a miles de usuarios.</p>
+            </div>
+            {/* Service 2 */}
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-[#6c5ce7]/25 transition-all duration-300 group">
+              <span className="text-3xl mb-4 block group-hover:scale-110 transition-transform duration-300">⚡</span>
+              <h3 className="font-outfit font-bold text-slate-200 text-base mb-2">Digitalización</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">Convertimos tus flujos de trabajo en papel o Excel en sistemas web rápidos, seguros e intuitivos.</p>
+            </div>
+            {/* Service 3 */}
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-[#00d2d3]/25 transition-all duration-300 group">
+              <span className="text-3xl mb-4 block group-hover:scale-110 transition-transform duration-300">🔌</span>
+              <h3 className="font-outfit font-bold text-slate-200 text-base mb-2">APIs & Backend</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">Desarrollamos arquitecturas backend sólidas en .NET Core con alta seguridad, optimización y scalabilidad.</p>
+            </div>
+            {/* Service 4 */}
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-[#6c5ce7]/25 transition-all duration-300 group">
+              <span className="text-3xl mb-4 block group-hover:scale-110 transition-transform duration-300">🛡️</span>
+              <h3 className="font-outfit font-bold text-slate-200 text-base mb-2">Despliegue Cloud</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">Desplegamos tu infraestructura de forma segura en contenedores AWS, con bases de datos aisladas e integradas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Active SaaS Products Showcase (Casos de Éxito) */}
+      <section id="cases" className="py-20 border-t border-white/5 relative bg-[#070514] z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#6c5ce7]/10 border border-[#6c5ce7]/20 text-[#a29bfe] font-bold text-[9px] uppercase tracking-widest leading-none mb-4">
+              🚀 NUESTRO PORTAFOLIO DE SOLUCIONES
+            </span>
+            <h2 className="font-outfit font-black text-3xl md:text-5xl text-white tracking-tight mb-4">
+              Nuestras Soluciones Verticales Activas
+            </h2>
+            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+              Explora dos de nuestras plataformas SaaS líderes en el mercado, diseñadas y mantenidas por el equipo de Almain TIC.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FourGym Product Showcase Section */}
-      <section id="fourgym" className="py-20 border-t border-white/5 relative bg-[#070514]">
+      <section id="fourgym" className="py-16 border-t border-white/5 relative bg-[#070514]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Mockup Preview container */}
