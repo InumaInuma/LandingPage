@@ -56,7 +56,7 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Brand Logo */}
           <div
-            className="flex items-center space-x-3 cursor-pointer"
+            className="flex items-center space-x-3 cursor-pointer group"
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
               setActiveTab("hero");
@@ -70,8 +70,11 @@ export const Navbar = () => {
               height={32}
               className="rounded-lg object-contain"
             />
-            <span className="font-outfit font-black tracking-widest text-lg bg-gradient-to-r from-white via-slate-200 to-[#00d2d3] bg-clip-text text-transparent">
-              AL<span className="text-white">MAIN</span> <span className="text-xs font-normal text-slate-400 tracking-normal ml-1">TIC</span>
+            <span className="font-outfit font-black tracking-widest text-lg bg-gradient-to-r from-white via-slate-200 to-[#00d2d3] bg-clip-text text-transparent transition-all duration-300">
+              AL<span className="text-white">MAIN</span>
+              <span className="inline-block text-[10px] font-bold text-slate-400 tracking-[0.2em] ml-2.5 group-hover:ml-0.5 group-hover:tracking-tighter group-hover:text-[#00d2d3] transition-all duration-500 ease-out transform group-hover:scale-105">
+                TIC
+              </span>
             </span>
           </div>
 

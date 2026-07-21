@@ -457,7 +457,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 pb-28 md:py-12 border-t border-white/5 bg-slate-950/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center space-x-3">
+          <a href="#hero" className="flex items-center space-x-3 group cursor-pointer">
             <Image
               src="/logo.png"
               alt="Almain Logo"
@@ -465,10 +465,13 @@ export default function Home() {
               height={28}
               className="rounded-lg object-contain"
             />
-            <span className="font-outfit font-black tracking-widest text-sm text-white">
-              ALMAIN <span className="text-[#00d2d3]">TIC</span>
+            <span className="font-outfit font-black tracking-widest text-sm text-white transition-all duration-300">
+              ALMAIN
+              <span className="inline-block text-[9px] font-bold text-slate-400 tracking-[0.2em] ml-2 group-hover:ml-0.5 group-hover:tracking-tighter group-hover:text-[#00d2d3] transition-all duration-500 ease-out transform group-hover:scale-105">
+                TIC
+              </span>
             </span>
-          </div>
+          </a>
 
           <p className="text-slate-500 text-xs text-center md:text-left">
             &copy; {new Date().getFullYear()} Almain. Todos los derechos reservados.
