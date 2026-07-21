@@ -50,13 +50,13 @@ export const ContactForm = () => {
           : "Delivery Connect (Envíos & Logística)";
         
         const messageText = 
-          `¡Hola Almain TIC! 👋 Me gustaría agendar una demo gratis.\n\n` +
-          `👤 *Nombre:* ${formData.name}\n` +
-          `📧 *Correo:* ${formData.email}\n` +
-          `📞 *WhatsApp:* ${formData.phone}\n` +
-          `🏢 *Empresa:* ${formData.businessName || "No especificada"}\n` +
-          `🚀 *Interés:* ${productLabel}\n` +
-          `💬 *Detalles:* ${formData.message}`;
+          `¡Hola Almain TIC! Me gustaría agendar una demo gratis.\n\n` +
+          `- *Nombre:* ${formData.name}\n` +
+          `- *Correo:* ${formData.email}\n` +
+          `- *WhatsApp:* ${formData.phone}\n` +
+          `- *Empresa:* ${formData.businessName || "No especificada"}\n` +
+          `- *Interés:* ${productLabel}\n` +
+          `- *Detalles:* ${formData.message}`;
 
         const encodedText = encodeURIComponent(messageText);
         const whatsappUrl = `https://wa.me/51907269610?text=${encodedText}`;
