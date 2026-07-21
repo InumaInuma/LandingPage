@@ -9,7 +9,7 @@ export const Pricing = () => {
     fourgym: [
       {
         name: "Standard",
-        price: billingPeriod === "monthly" ? 49 : 39,
+        monthlyPrice: 50,
         description: "Ideal para gimnasios pequeños y estudios independientes.",
         features: [
           "Hasta 200 socios activos",
@@ -21,7 +21,7 @@ export const Pricing = () => {
       },
       {
         name: "Pro",
-        price: billingPeriod === "monthly" ? 89 : 71,
+        monthlyPrice: 100,
         description: "Para gimnasios en crecimiento con alta afluencia.",
         features: [
           "Socios activos ilimitados",
@@ -36,7 +36,7 @@ export const Pricing = () => {
     delivery: [
       {
         name: "Logística Express",
-        price: billingPeriod === "monthly" ? 69 : 55,
+        monthlyPrice: 70,
         description: "Para agencias de reparto locales con flota mediana.",
         features: [
           "Hasta 10 Repartidores activos",
@@ -48,7 +48,7 @@ export const Pricing = () => {
       },
       {
         name: "Flota Corporativa",
-        price: billingPeriod === "monthly" ? 129 : 103,
+        monthlyPrice: 130,
         description: "Control absoluto para agencias de logística masiva.",
         features: [
           "Repartidores y Comercios ilimitados",
@@ -81,7 +81,7 @@ export const Pricing = () => {
             Planes de Suscripción Flexibles
           </h2>
           <p className="text-slate-400 text-base md:text-lg leading-relaxed mb-8">
-            Comienza a operar hoy mismo con tarifas mensuales sin permanencia obligatoria ni comisiones ocultas.
+            Comienza a operar hoy mismo con tarifas mensuales sin permanencia obligatoria en Soles (S/).
           </p>
 
           {/* Monthly / Yearly Switch Toggle */}
@@ -124,54 +124,67 @@ export const Pricing = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {plans.fourgym.map((plan, idx) => (
-                <div
-                  key={idx}
-                  className={`glass-panel rounded-3xl p-8 relative flex flex-col justify-between transition-all duration-300 border ${
-                    plan.badge 
-                      ? "border-[#00d2d3]/30 shadow-2xl shadow-[#00d2d3]/5 scale-[1.02]" 
-                      : "border-white/5"
-                  }`}
-                >
-                  {plan.badge && (
-                    <span className="absolute top-4 right-4 bg-gradient-to-r from-[#00d2d3] to-cyan-400 text-slate-950 font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-full">
-                      {plan.badge}
-                    </span>
-                  )}
-                  <div>
-                    <h4 className="font-outfit font-black text-xl text-white mb-2">{plan.name}</h4>
-                    <p className="text-slate-400 text-xs mb-6 min-h-[32px]">{plan.description}</p>
-                    
-                    <div className="flex items-baseline space-x-1 mb-8">
-                      <span className="font-outfit font-black text-4xl text-white">${plan.price}</span>
-                      <span className="text-slate-500 text-xs">/ mes</span>
-                    </div>
+              {plans.fourgym.map((plan, idx) => {
+                const isYearly = billingPeriod === "yearly";
+                const displayedPrice = isYearly ? plan.monthlyPrice * 0.8 : plan.monthlyPrice;
+                const yearlyTotal = plan.monthlyPrice * 12 * 0.8;
 
-                    <ul className="space-y-4 mb-8">
-                      {plan.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start text-xs text-slate-300">
-                          <svg className="w-4 h-4 text-[#00d2d3] mr-2.5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <a
-                    href="#contact"
-                    onClick={handleContactScroll}
-                    className={`w-full py-3.5 rounded-xl font-outfit font-bold text-xs uppercase tracking-widest text-center transition-all cursor-pointer ${
-                      plan.badge
-                        ? "bg-gradient-to-r from-[#00d2d3] to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 shadow-md shadow-[#00d2d3]/10"
-                        : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
+                return (
+                  <div
+                    key={idx}
+                    className={`glass-panel rounded-3xl p-8 relative flex flex-col justify-between transition-all duration-300 border ${
+                      plan.badge 
+                        ? "border-[#00d2d3]/30 shadow-2xl shadow-[#00d2d3]/5 scale-[1.02]" 
+                        : "border-white/5"
                     }`}
                   >
-                    Adquirir Plan
-                  </a>
-                </div>
-              ))}
+                    {plan.badge && (
+                      <span className="absolute top-4 right-4 bg-gradient-to-r from-[#00d2d3] to-cyan-400 text-slate-950 font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-full">
+                        {plan.badge}
+                      </span>
+                    )}
+                    <div>
+                      <h4 className="font-outfit font-black text-xl text-white mb-2">{plan.name}</h4>
+                      <p className="text-slate-400 text-xs mb-6 min-h-[32px]">{plan.description}</p>
+                      
+                      <div className="flex flex-col mb-8">
+                        <div className="flex items-baseline space-x-1.5">
+                          <span className="font-outfit font-black text-4xl text-white">S/ {displayedPrice.toFixed(0)}</span>
+                          <span className="text-slate-500 text-xs">/ mes</span>
+                        </div>
+                        {isYearly && (
+                          <span className="text-[10px] text-[#00d2d3] font-bold mt-1.5 uppercase tracking-wide">
+                            Facturado anualmente (S/ {yearlyTotal.toFixed(0)}/año)
+                          </span>
+                        )}
+                      </div>
+
+                      <ul className="space-y-4 mb-8">
+                        {plan.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start text-xs text-slate-300">
+                            <svg className="w-4 h-4 text-[#00d2d3] mr-2.5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <a
+                      href="#contact"
+                      onClick={handleContactScroll}
+                      className={`w-full py-3.5 rounded-xl font-outfit font-bold text-xs uppercase tracking-widest text-center transition-all cursor-pointer ${
+                        plan.badge
+                          ? "bg-gradient-to-r from-[#00d2d3] to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 shadow-md shadow-[#00d2d3]/10"
+                          : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
+                      }`}
+                    >
+                      Adquirir Plan
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -185,54 +198,67 @@ export const Pricing = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {plans.delivery.map((plan, idx) => (
-                <div
-                  key={idx}
-                  className={`glass-panel rounded-3xl p-8 relative flex flex-col justify-between transition-all duration-300 border ${
-                    plan.badge 
-                      ? "border-[#6c5ce7]/30 shadow-2xl shadow-[#6c5ce7]/5 scale-[1.02]" 
-                      : "border-white/5"
-                  }`}
-                >
-                  {plan.badge && (
-                    <span className="absolute top-4 right-4 bg-gradient-to-r from-[#6c5ce7] to-[#a29bfe] text-white font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-full">
-                      {plan.badge}
-                    </span>
-                  )}
-                  <div>
-                    <h4 className="font-outfit font-black text-xl text-white mb-2">{plan.name}</h4>
-                    <p className="text-slate-400 text-xs mb-6 min-h-[32px]">{plan.description}</p>
+              {plans.delivery.map((plan, idx) => {
+                const isYearly = billingPeriod === "yearly";
+                const displayedPrice = isYearly ? plan.monthlyPrice * 0.8 : plan.monthlyPrice;
+                const yearlyTotal = plan.monthlyPrice * 12 * 0.8;
 
-                    <div className="flex items-baseline space-x-1 mb-8">
-                      <span className="font-outfit font-black text-4xl text-white">${plan.price}</span>
-                      <span className="text-slate-500 text-xs">/ mes</span>
-                    </div>
-
-                    <ul className="space-y-4 mb-8">
-                      {plan.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start text-xs text-slate-300">
-                          <svg className="w-4 h-4 text-[#a29bfe] mr-2.5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <a
-                    href="#contact"
-                    onClick={handleContactScroll}
-                    className={`w-full py-3.5 rounded-xl font-outfit font-bold text-xs uppercase tracking-widest text-center transition-all cursor-pointer ${
-                      plan.badge
-                        ? "bg-gradient-to-r from-[#6c5ce7] to-[#a29bfe] text-white hover:from-[#a29bfe] hover:to-[#b2bec3] shadow-md shadow-[#6c5ce7]/10"
-                        : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
+                return (
+                  <div
+                    key={idx}
+                    className={`glass-panel rounded-3xl p-8 relative flex flex-col justify-between transition-all duration-300 border ${
+                      plan.badge 
+                        ? "border-[#6c5ce7]/30 shadow-2xl shadow-[#6c5ce7]/5 scale-[1.02]" 
+                        : "border-white/5"
                     }`}
                   >
-                    Adquirir Plan
-                  </a>
-                </div>
-              ))}
+                    {plan.badge && (
+                      <span className="absolute top-4 right-4 bg-gradient-to-r from-[#6c5ce7] to-[#a29bfe] text-white font-black text-[9px] uppercase tracking-widest px-3 py-1 rounded-full">
+                        {plan.badge}
+                      </span>
+                    )}
+                    <div>
+                      <h4 className="font-outfit font-black text-xl text-white mb-2">{plan.name}</h4>
+                      <p className="text-slate-400 text-xs mb-6 min-h-[32px]">{plan.description}</p>
+
+                      <div className="flex flex-col mb-8">
+                        <div className="flex items-baseline space-x-1.5">
+                          <span className="font-outfit font-black text-4xl text-white">S/ {displayedPrice.toFixed(0)}</span>
+                          <span className="text-slate-500 text-xs">/ mes</span>
+                        </div>
+                        {isYearly && (
+                          <span className="text-[10px] text-[#a29bfe] font-bold mt-1.5 uppercase tracking-wide">
+                            Facturado anualmente (S/ {yearlyTotal.toFixed(0)}/año)
+                          </span>
+                        )}
+                      </div>
+
+                      <ul className="space-y-4 mb-8">
+                        {plan.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start text-xs text-slate-300">
+                            <svg className="w-4 h-4 text-[#a29bfe] mr-2.5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <a
+                      href="#contact"
+                      onClick={handleContactScroll}
+                      className={`w-full py-3.5 rounded-xl font-outfit font-bold text-xs uppercase tracking-widest text-center transition-all cursor-pointer ${
+                        plan.badge
+                          ? "bg-gradient-to-r from-[#6c5ce7] to-[#a29bfe] text-white hover:from-[#a29bfe] hover:to-[#b2bec3] shadow-md shadow-[#6c5ce7]/10"
+                          : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
+                      }`}
+                    >
+                      Adquirir Plan
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
