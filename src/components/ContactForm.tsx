@@ -44,7 +44,33 @@ export const ContactForm = () => {
       const result = await response.json();
 
       if (response.ok && result.isSuccess) {
-        setStatusMessage({ type: "success", text: result.message });
+        // Format WhatsApp message to Peru (+51) owner number (907269610)
+        const productLabel = formData.product === "fourgym" 
+          ? "FourGym (Gestión de Gimnasios)" 
+          : "Delivery Connect (Envíos & Logística)";
+        
+        const messageText = 
+          `¡Hola Almain TIC! 👋 Me gustaría agendar una demo gratis.\n\n` +
+          `👤 *Nombre:* ${formData.name}\n` +
+          `📧 *Correo:* ${formData.email}\n` +
+          `📞 *WhatsApp:* ${formData.phone}\n` +
+          `🏢 *Empresa:* ${formData.businessName || "No especificada"}\n` +
+          `🚀 *Interés:* ${productLabel}\n` +
+          `💬 *Detalles:* ${formData.message}`;
+
+        const encodedText = encodeURIComponent(messageText);
+        const whatsappUrl = `https://wa.me/51907269610?text=${encodedText}`;
+
+        setStatusMessage({ 
+          type: "success", 
+          text: "¡Formulario registrado! Redirigiéndote a WhatsApp para atención directa..." 
+        });
+
+        // Open WhatsApp in a new window/tab
+        if (typeof window !== "undefined") {
+          window.open(whatsappUrl, "_blank");
+        }
+
         setFormData({
           name: "",
           email: "",
