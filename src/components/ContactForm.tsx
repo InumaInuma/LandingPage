@@ -45,25 +45,30 @@ export const ContactForm = () => {
 
       if (response.ok && result.isSuccess) {
         // Format WhatsApp message to Peru (+51) owner number (907269610)
-        const productLabel = formData.product === "fourgym" 
-          ? "FourGym (Gestión de Gimnasios)" 
-          : "Delivery Connect (Envíos & Logística)";
-        
-        const messageText = 
+        let productLabel = "FourGym - Gestión de Gimnasios";
+        if (formData.product === "delivery") {
+          productLabel = "Delivery Connect - Logística & Envíos";
+        } else if (formData.product === "both") {
+          productLabel = "Ambos Sistemas SaaS";
+        } else if (formData.product === "custom") {
+          productLabel = "Proyecto de Software a Medida";
+        }
+
+        const messageText =
           `¡Hola Almain TIC! Me gustaría agendar una demo gratis.\n\n` +
-          `- *Nombre:* ${formData.name}\n` +
-          `- *Correo:* ${formData.email}\n` +
-          `- *WhatsApp:* ${formData.phone}\n` +
-          `- *Empresa:* ${formData.businessName || "No especificada"}\n` +
-          `- *Interés:* ${productLabel}\n` +
-          `- *Detalles:* ${formData.message}`;
+          `- Nombre: ${formData.name}\n` +
+          `- Correo: ${formData.email}\n` +
+          `- WhatsApp: ${formData.phone}\n` +
+          `- Empresa: ${formData.businessName || "No especificada"}\n` +
+          `- Interés: ${productLabel}\n` +
+          `- Detalles: ${formData.message}`;
 
         const encodedText = encodeURIComponent(messageText);
         const whatsappUrl = `https://wa.me/51907269610?text=${encodedText}`;
 
-        setStatusMessage({ 
-          type: "success", 
-          text: "¡Formulario registrado! Redirigiéndote a WhatsApp para atención directa..." 
+        setStatusMessage({
+          type: "success",
+          text: "¡Formulario registrado! Redirigiéndote a WhatsApp para atención directa..."
         });
 
         // Open WhatsApp in a new window/tab
@@ -203,11 +208,10 @@ export const ContactForm = () => {
         {/* Status notification */}
         {statusMessage.type && (
           <div
-            className={`p-4 rounded-xl text-xs font-semibold flex items-start space-x-2.5 ${
-              statusMessage.type === "success"
+            className={`p-4 rounded-xl text-xs font-semibold flex items-start space-x-2.5 ${statusMessage.type === "success"
                 ? "bg-emerald-950/40 border border-emerald-500/20 text-emerald-400"
                 : "bg-rose-950/40 border border-rose-500/20 text-rose-400"
-            }`}
+              }`}
           >
             {statusMessage.type === "success" ? (
               <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
